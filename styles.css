@@ -1,0 +1,77 @@
+.container {
+    width: 650px;
+    padding: 20px;
+}
+
+#main{
+    margin-top: 50px;
+}
+
+.todo-item{
+    min-height: 50px;
+    border-bottom: 1px solid gainsboro;
+    font-size: 20px;
+    display: block;
+    position: relative;
+    margin: 5px;
+}
+
+.new-todo{
+    margin: 20px 0;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-remove-item {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    cursor: pointer;
+}
+
+.change-todo{
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+}
+.text{
+    font-weight: normal;
+    margin: 0 40px 0 15px;
+    display: block;
+}
+
+.editor {
+    display: none;
+}
+.edit-item .editor{
+    display: block;
+    padding:10px;
+    width: 100%;
+    text-align: center;
+    margin: 3px 0;
+}
+
+.edit-item .todo-item{
+    display: none;
+}
+
+#header,#footer{
+    position: relative;
+}
+.counter{
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.counter-item{
+    color: #999;
+}
+.header-item{
+    display: inline-block;
+    margin-left: 5px;
+}
+

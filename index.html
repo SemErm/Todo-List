@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="newApplication.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>ToDo List</h1>
+    </header>
+    <div id="main">
+        <div id="header">
+            <div class="header-item">
+                <input type="checkbox" id="choose-all" class="checkbox">
+            </div>
+            <div class="header-item">
+                <button class="btn btn-success" id="add-todo">Add</button>
+            </div>
+            <div class="header-item btn-remove-all">
+                <button class="btn btn-primary" id="remove-completed-todo">Clear completed</button>
+            </div>
+            <div class="counter header-item"></div>
+        </div>
+        <div class="new-todo">
+            <input type="text" class="form-control input-lg" id="new-todo" required autofocus placeholder="What needs to be done?">
+        </div>
+            <ul id="list-todo"></ul>
+        <div id="footer"></div>
+    </div>
+
+    <script type="text/template" id="counter-list-template">
+        <% if(countActive) {%>
+        <div class="counter-item">
+            <span>
+                <%= countActive %> items left
+            </span>
+        </div>
+        <% } %>
+        <% if(countCompleted) {%>
+        <div class="counter-item">
+            <span>
+                <%= countCompleted %> items completed
+            </span>
+        </div>
+        <% } %>
+    </script>
+
+    <script type="text/template" id="list-template">
+        <% _.each(items, function(item){ %>
+            <li data-id="<%= item.id %>" >
+                <div class="todo-item">
+                    <input type="checkbox" class="change-todo" <%= item.completed  ? 'checked' : '' %> >
+                    <p class="text text-center "><%= item.title %> </p>
+                    <div class="btn-remove-item">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+                </div>
+                <input type="text" value="<%= item.title %>" class="editor">
+            </li>
+        <% }); %>
+    </script>
+
+    <script type="text/template" id="footer-list-template">
+        <div class="btn-group filter">
+            <button type="button" class="btn btn-default" id="btn-all" data-filter="all">All</button>
+            <button type="button" class="btn btn-default" id="btn-active"  data-filter="active">Active</button>
+            <button type="button" class="btn btn-default" id="btn-completed"  data-filter="completed">Completed</button>
+        </div>
+        <div class="btn-group pagination">
+            <button type="button" class="btn btn-default" data-page="dec"><<</button>
+            <button type="button" class="btn btn-default" data-page="inc">>></button>
+        </div>
+    </script>
+
+</div>
+</body>
+</html>
